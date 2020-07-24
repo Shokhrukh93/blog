@@ -1,7 +1,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <div class="card mb-4">
     {% for post in post_list %}
-        <li><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></li>
+        <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
+          <div class="card-body">
+            <h2 class="card-title">{{ post.title }}</h2>
+            <p class="card-text">{{ post.body }}</p>
+            <a href="{% url 'post_detail' post.pk %}" class="btn btn-primary">Read More &rarr;</a>
+          </div>
+          <div class="card-footer text-muted">
+            Posted on January 1, 2020 by
+            <a href="#">Start Bootstrap</a>
+          </div>
     {% endfor %}
+  </div>
 {% endblock %}
